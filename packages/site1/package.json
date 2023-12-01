@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:site1": "npm --prefix packages/site1 run build",
     "start": "next start",
     "lint": "next lint"
   },

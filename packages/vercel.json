@@ -1,0 +1,6 @@
+{
+  "builds": [
+    { "src": "packages/site1", "use": "@vercel/node" },
+    { "src": "packages/site2", "use": "@vercel/node" }
+  ]
+}

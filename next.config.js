@@ -43,13 +43,13 @@ const nextConfig = {
     SUPPORTED_LANGUAGES: ['en-us', 'de-de'],
     DEFAULT_LANGUAGE: 'en-us',
   },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.alias['@site1'] = path.join(__dirname, 'packages/site1');
-      config.resolve.alias['@site2'] = path.join(__dirname, 'packages/site2');
-    }
-    return config;
-  },
+  // webpack: (config, { isServer }) => {
+  //   if (!isServer) {
+  //     config.resolve.alias['@site1'] = path.join(__dirname, 'packages/site1');
+  //     config.resolve.alias['@site2'] = path.join(__dirname, 'packages/site2');
+  //   }
+  //   return config;
+  // },
 };
 
 module.exports = process.env.NODE_ENV === 'development' ? nextConfig : withPWA(nextConfig);

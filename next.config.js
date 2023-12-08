@@ -10,19 +10,19 @@ const nextConfig = {
     localeDetection: false,
     domains: [
       {
-        domain: 'www.example.com',
+        domain: 'www.localetest.com',
         defaultLocale: 'en-US',
         http: true,
         locales: ['en-US'],
       },
       {
-        domain: 'www.example.de',
+        domain: 'www.localetest.de',
         defaultLocale: 'de',
         http: true,
         locales: ['de'],
       },
       {
-        domain: 'www.example.fr',
+        domain: 'www.localetest.fr',
         defaultLocale: 'fr',
         http: true,
         locales: ['fr'],

@@ -26,28 +26,46 @@ export default function Header({
     : publicRuntimeConfig;
   const liveEdit = envConfig.CONTENTSTACK_LIVE_EDIT_TAGS === "true";
 
+  // const getSelectedLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   e.preventDefault();
+  //   localStorage.setItem("lang", e.target.value);
+  //   const value = localStorage.getItem("lang")
+  //     ? localStorage.getItem("lang")
+  //     : "en-us";
+  //   eventBus.next({ type: "selectedLanguage", data: value });
+  //   getHeaderRes(value);
+  // };
   const getSelectedLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
-    localStorage.setItem("lang", e.target.value);
-    const value = localStorage.getItem("lang")
-      ? localStorage.getItem("lang")
-      : "en-us";
-    eventBus.next({ type: "selectedLanguage", data: value });
-    getHeaderRes(value);
+    const selectedLanguage = e.target.value;
+    localStorage.setItem('lang', selectedLanguage);
+    eventBus.next({ type: 'selectedLanguage', data: selectedLanguage });
+    getHeaderRes(selectedLanguage);
   };
+  // const getHeaderRes = async (lang: string | null) => {
+  //   const response = await Stack.getEntry({
+  //     contentTypeUid: "header",
+  //     referenceFieldPath: ["navigation_menu.page_reference"],
+  //     jsonRtePath: ["notification_bar.notification_message"],
+  //     locale: lang,
+  //   });
+
+  //   liveEdit && addEditableTags(response[0][0], "header", true);
+  //   setHeader(response[0][0]);
+  //   return response[0][0];
+  // };
   const getHeaderRes = async (lang: string | null) => {
     const response = await Stack.getEntry({
-      contentTypeUid: "header",
-      referenceFieldPath: ["navigation_menu.page_reference"],
-      jsonRtePath: ["notification_bar.notification_message"],
-      locale: lang,
+      contentTypeUid: 'header',
+      referenceFieldPath: ['navigation_menu.page_reference'],
+      jsonRtePath: ['notification_bar.notification_message'],
+      locale: lang || publicRuntimeConfig.DEFAULT_LANGUAGE, // Use the selected language or default to the configured default language
     });
 
-    liveEdit && addEditableTags(response[0][0], "header", true);
+    liveEdit && addEditableTags(response[0][0], 'header', true);
     setHeader(response[0][0]);
     return response[0][0];
   };
-
   return (
     <header className="header">
       <div className="headerContainer">

@@ -1,9 +1,0 @@
-{
-  "builds": [
-    { "src": "packages/site1", "use": "@vercel/node" },
-    { "src": "packages/site2", "use": "@vercel/node" },
-    { "buildCommand": "next build" },
-    {"build:site1": "npm --prefix packages/site1 run build"},
-   { "build:site2": "npm --prefix packages/site2 run build"}
-  ]
-}

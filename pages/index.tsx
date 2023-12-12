@@ -43,11 +43,30 @@ export default function Home(props: Props) {
 
 export async function getServerSideProps(context: Context) {
   try {
+    
+    const { locale, req } = context;
+    const host = req.headers.host || '';
+    console.log(locale);
+    console.log(req.headers.host);
+    let entryUrl;
+
+    switch (host) {
+      case 'www.localetest.de':
+        entryUrl = '/path-to-german-content';
+        break;
+      case 'www.localetest.fr':
+        entryUrl = '/path-to-french-content'; 
+        break;
+      default:
+        entryUrl = context.resolvedUrl;
+    }
+
+
     const entryRes = await getPageRes(context.resolvedUrl);
     return {
       props: {
         entryUrl: context.resolvedUrl,
-        page: entryRes,
+        page: entryRes || null,
       },
     };
   } catch (error) {

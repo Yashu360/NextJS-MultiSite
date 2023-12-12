@@ -64,6 +64,8 @@ export type Context = {
   setHeader: Function;
   write: Function;
   end: Function;
+  locale: string;
+  req: any;
 };
 
 export type Pages = [page: Page];

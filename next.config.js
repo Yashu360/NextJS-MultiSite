@@ -31,7 +31,13 @@ const nextConfig = {
     defaultLocale: 'en-US',
   },
   publicRuntimeConfig: {
-    CONTENTSTACK_API_KEY: process.env.CONTENTSTACK_API_KEY,
+    CONTENTSTACK_API_KEY: process.env.CONTENTSTACK_API_KEY || '',
+    // Add specific API keys for each domain
+    CONTENTSTACK_API_KEYS: {
+      'www.localetest.com': process.env.CONTENTSTACK_API_KEY_EN || '',
+      'www.localetest.de': process.env.CONTENTSTACK_API_KEY_DE || '',
+      'www.localetest.fr': process.env.CONTENTSTACK_API_KEY_FR || '',
+    },
     CONTENTSTACK_DELIVERY_TOKEN: process.env.CONTENTSTACK_DELIVERY_TOKEN,
     CONTENTSTACK_ENVIRONMENT: process.env.CONTENTSTACK_ENVIRONMENT,
     CONTENTSTACK_MANAGEMENT_TOKEN: process.env.CONTENTSTACK_MANAGEMENT_TOKEN,

@@ -51,7 +51,13 @@ export const { onEntryChange } = ContentstackLivePreview;
 const renderOption = {
   span: (node, next) => next(node.children),
 };
-
+function getApiKeyForLocale(locale) {
+  return locale === 'de-de'
+    ? envConfig.CONTENTSTACK_API_KEY_DE
+    : locale === 'fr-fr'
+    ? envConfig.CONTENTSTACK_API_KEY_FR
+    : envConfig.NEXT_PUBLIC_CONTENTSTACK_API_KEY;
+}
 export default {
   /**
    *

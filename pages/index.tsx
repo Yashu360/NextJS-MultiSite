@@ -51,10 +51,10 @@ export async function getServerSideProps(context: Context) {
     let entryUrl;
 
     switch (host) {
-      case 'www.localetest.de':
+      case 'https://next-js-multi-site-4dfge-nagarajuchatta.vercel.app/':
         entryUrl =  context.resolvedUrl;
         break;
-      case 'www.localetest.fr':
+      case 'https://next-js-multi-site-3dfge-nagarajuchatta.vercel.app/':
         entryUrl = context.resolvedUrl;
         break;
       default:

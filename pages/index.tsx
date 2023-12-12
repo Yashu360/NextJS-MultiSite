@@ -52,15 +52,14 @@ export async function getServerSideProps(context: Context) {
 
     switch (host) {
       case 'www.localetest.de':
-        entryUrl = '/path-to-german-content';
+        entryUrl =  context.resolvedUrl;
         break;
       case 'www.localetest.fr':
-        entryUrl = '/path-to-french-content'; 
+        entryUrl = context.resolvedUrl;
         break;
       default:
         entryUrl = context.resolvedUrl;
     }
-
 
     const entryRes = await getPageRes(context.resolvedUrl);
     return {

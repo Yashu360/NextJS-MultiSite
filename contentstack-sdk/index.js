@@ -33,7 +33,7 @@ const subscription = eventBus.subscribe((event) => {
    selectedLanguage(event.data);
   }
 });
- var locale = 'en-us';
+ var locale = 'en-US';
 
 const selectedLanguage = (e) => {
   locale = e;
@@ -52,9 +52,9 @@ const renderOption = {
   span: (node, next) => next(node.children),
 };
 function getApiKeyForLocale(locale) {
-  return locale === 'de-de'
+  return locale === 'de-DE'
     ? envConfig.CONTENTSTACK_API_KEY_DE
-    : locale === 'fr-fr'
+    : locale === 'fr-FR'
     ? envConfig.CONTENTSTACK_API_KEY_FR
     : envConfig.NEXT_PUBLIC_CONTENTSTACK_API_KEY;
 }

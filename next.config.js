@@ -46,8 +46,8 @@ const nextConfig = {
     NEXT_PUBLIC_CONTENTSTACK_API_KEY: process.env.CONTENTSTACK_API_KEY,
     CONTENTSTACK_LIVE_PREVIEW: process.env.NEXT_PUBLIC_CONTENTSTACK_LIVE_PREVIEW || 'true',
     CONTENTSTACK_LIVE_EDIT_TAGS: process.env.CONTENTSTACK_LIVE_EDIT_TAGS || 'false',
-    SUPPORTED_LANGUAGES: ['en-us', 'de-de'],
-    DEFAULT_LANGUAGE: 'en-us',
+    SUPPORTED_LANGUAGES: ['en-US', 'de-DE'],
+    DEFAULT_LANGUAGE: 'en-US',
   },
   // webpack: (config, { isServer }) => {
   //   if (!isServer) {
